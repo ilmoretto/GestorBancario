@@ -1,0 +1,14 @@
+C:\Users\2024102060006\Documents\POO\Aula16-04-2025\bin\Debug\net8.0\Aula16-04-2025.exe
+C:\Users\2024102060006\Documents\POO\Aula16-04-2025\bin\Debug\net8.0\Aula16-04-2025.deps.json
+C:\Users\2024102060006\Documents\POO\Aula16-04-2025\bin\Debug\net8.0\Aula16-04-2025.runtimeconfig.json
+C:\Users\2024102060006\Documents\POO\Aula16-04-2025\bin\Debug\net8.0\Aula16-04-2025.dll
+C:\Users\2024102060006\Documents\POO\Aula16-04-2025\bin\Debug\net8.0\Aula16-04-2025.pdb
+C:\Users\2024102060006\Documents\POO\Aula16-04-2025\obj\Debug\net8.0\Aula16-04-2025.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\2024102060006\Documents\POO\Aula16-04-2025\obj\Debug\net8.0\Aula16-04-2025.AssemblyInfoInputs.cache
+C:\Users\2024102060006\Documents\POO\Aula16-04-2025\obj\Debug\net8.0\Aula16-04-2025.AssemblyInfo.cs
+C:\Users\2024102060006\Documents\POO\Aula16-04-2025\obj\Debug\net8.0\Aula16-04-2025.csproj.CoreCompileInputs.cache
+C:\Users\2024102060006\Documents\POO\Aula16-04-2025\obj\Debug\net8.0\Aula16-04-2025.dll
+C:\Users\2024102060006\Documents\POO\Aula16-04-2025\obj\Debug\net8.0\refint\Aula16-04-2025.dll
+C:\Users\2024102060006\Documents\POO\Aula16-04-2025\obj\Debug\net8.0\Aula16-04-2025.pdb
+C:\Users\2024102060006\Documents\POO\Aula16-04-2025\obj\Debug\net8.0\Aula16-04-2025.genruntimeconfig.cache
+C:\Users\2024102060006\Documents\POO\Aula16-04-2025\obj\Debug\net8.0\ref\Aula16-04-2025.dll
