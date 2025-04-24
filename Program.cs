@@ -228,19 +228,27 @@ void BuscarConta() //segundo commit
     Console.WriteLine("===== BUSCAR CONTA =====");
     Console.WriteLine("Informe o ID da conta: ");
     int idConta = Convert.ToInt32(Console.ReadLine());
-    ContaBancaria contaLoc = contas.FirstOrDefault(x => x.IdConta == idConta);
-
-    if (contaLoc != null)
+    try
     {
-        Console.WriteLine($"\nTitular da Conta: {contaLoc.TitularConta}");
-        Console.WriteLine($"Saldo: {contaLoc.Saldo}");
-        Console.WriteLine($"Agência: {contaLoc.Agencia}");
-        
+        ContaBancaria contaLoc = contas.First(x => x.IdConta == idConta);
+
+        if (contaLoc != null)
+        {
+            Console.WriteLine($"\nTitular da Conta: {contaLoc.TitularConta}");
+            Console.WriteLine($"Saldo: {contaLoc.Saldo}");
+            Console.WriteLine($"Agência: {contaLoc.Agencia}");
+
+        }
     }
-    else
+    catch (Exception ex)
     {
         Console.WriteLine("Conta bancária não localizada.");
     }
+    finally
+    {
+        Console.WriteLine("Vai passar aqui de qualquer jeito.");
+    }
+
     Console.WriteLine("\nPressione qualquer tecla para continuar...");
     Console.ReadKey();
 
