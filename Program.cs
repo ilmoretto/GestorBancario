@@ -13,6 +13,7 @@ while (!encerrarPrograma)
     Console.WriteLine("4 - Sacar");
     Console.WriteLine("5 - Filtrar por saldo");
     Console.WriteLine("6 - Saldo Total das Contas");
+    Console.WriteLine("7 - Buscar Conta");
     Console.WriteLine("0 - Sair");
     Console.WriteLine("==============================");
     Console.Write("Escolha uma opção: ");
@@ -44,6 +45,9 @@ while (!encerrarPrograma)
             break;
         case 6:
             SaldoTotal();
+            break;
+            case 7:
+                BuscarConta();
             break;
 
         default:
@@ -225,5 +229,19 @@ void BuscarConta() //segundo commit
     Console.WriteLine("Informe o ID da conta: ");
     int idConta = Convert.ToInt32(Console.ReadLine());
     ContaBancaria contaLoc = contas.FirstOrDefault(x => x.IdConta == idConta);
+
+    if (contaLoc != null)
+    {
+        Console.WriteLine($"\nTitular da Conta: {contaLoc.TitularConta}");
+        Console.WriteLine($"Saldo: {contaLoc.Saldo}");
+        Console.WriteLine($"Agência: {contaLoc.Agencia}");
+        
+    }
+    else
+    {
+        Console.WriteLine("Conta bancária não localizada.");
+    }
+    Console.WriteLine("\nPressione qualquer tecla para continuar...");
+    Console.ReadKey();
 
 }
