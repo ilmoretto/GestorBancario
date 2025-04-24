@@ -218,3 +218,12 @@ void SaldoTotal()
     Console.WriteLine("\nPressione qualquer tecla para continuar...");
     Console.ReadKey();
 }
+void BuscarConta() //segundo commit
+{
+    Console.Clear();
+    Console.WriteLine("===== BUSCAR CONTA =====");
+    Console.WriteLine("Informe o ID da conta: ");
+    int idConta = Convert.ToInt32(Console.ReadLine());
+    ContaBancaria contaLoc = contas.FirstOrDefault(x => x.IdConta == idConta);
+
+}
