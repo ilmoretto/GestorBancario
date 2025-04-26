@@ -235,7 +235,7 @@ void BuscarConta() //segundo commit
         if (contaLoc != null)
         {
             Console.WriteLine($"\nTitular da Conta: {contaLoc.TitularConta}");
-            Console.WriteLine($"Saldo: {contaLoc.Saldo}");
+            Console.WriteLine($"Saldo: {contaLoc.Saldo.ToString("C2")}");
             Console.WriteLine($"Agência: {contaLoc.Agencia}");
 
         }
@@ -246,10 +246,43 @@ void BuscarConta() //segundo commit
     }
     finally
     {
-        Console.WriteLine("Vai passar aqui de qualquer jeito.");
+        //Console.WriteLine("Vai passar aqui de qualquer jeito.");
     }
 
     Console.WriteLine("\nPressione qualquer tecla para continuar...");
     Console.ReadKey();
+
+}
+
+void Transferir()
+{
+    Console.Clear();
+    Console.Write("Informe o ID da conta de Origem: ");
+    int idOrigem = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Informe o ID da conta de Destino ");
+    int idDestino = Convert.ToInt32(Console.ReadLine());
+    
+    //validando contas bancárias antes de transferir
+    ContaBancaria contaOrigem = contas.First(x => x.IdConta == idOrigem);
+    ContaBancaria contaDestino = contas.First(x => x.IdConta == idDestino);
+
+    if (contaOrigem != null && contaDestino != null)
+    {
+        Console.Write("Informe o valor que deseja transferir: R$");
+        double valorTrans = Convert.ToDouble(Console.ReadLine());
+        
+        contaOrigem.Sacar(valorTrans);
+        contaDestino.Depositar(valorTrans);
+
+        Console.WriteLine("\nTransferência realizada com sucesso!");
+        Console.WriteLine("\nPressione qualquer tecla para continuar...");
+        Console.ReadKey();
+    }
+    else
+    {
+        Console.WriteLine("Contas bancárias não localizadas.");
+        Console.WriteLine("\nPressione qualquer tecla para continuar...");
+        Console.ReadKey();
+    }
 
 }
