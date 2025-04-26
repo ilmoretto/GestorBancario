@@ -6,6 +6,15 @@
     public string TitularConta;
     public double Saldo;
 
+    public ContaBancaria(int IdConta, int Agencia, int NuConta, string TitularConta, double Saldo)
+    {
+        this.IdConta = IdConta;
+        this.Agencia = Agencia;
+        this.NuConta = NuConta;
+        this.TitularConta = TitularConta;
+        this.Saldo = Saldo;
+    }
+
     public void Depositar(double valorDep)
     {
         if (valorDep > 0)

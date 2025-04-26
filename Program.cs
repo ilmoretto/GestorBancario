@@ -14,6 +14,7 @@ while (!encerrarPrograma)
     Console.WriteLine("5 - Filtrar por saldo");
     Console.WriteLine("6 - Saldo Total das Contas");
     Console.WriteLine("7 - Buscar Conta");
+    Console.WriteLine("8 - Transferir");
     Console.WriteLine("0 - Sair");
     Console.WriteLine("==============================");
     Console.Write("Escolha uma opção: ");
@@ -46,8 +47,11 @@ while (!encerrarPrograma)
         case 6:
             SaldoTotal();
             break;
-            case 7:
-                BuscarConta();
+        case 7:
+            BuscarConta();
+            break;
+        case 8:
+            Transferir();
             break;
 
         default:
@@ -60,35 +64,42 @@ while (!encerrarPrograma)
 
 void CadastrarConta()
 {
-    string opcContinuar = "s";
-
-    while (opcContinuar != "n")
+    try
     {
-        ContaBancaria c1 = new ContaBancaria();
-        Console.Clear();
-        Console.WriteLine("Informe o ID da conta: ");
-        c1.IdConta = Convert.ToInt32(Console.ReadLine());
+        string opcContinuar = "s";
 
-        Console.WriteLine("Informe a agência da conta: ");
-        c1.Agencia = Convert.ToInt32(Console.ReadLine());
+        while (opcContinuar != "n")
+        {
+            Console.Clear();
+            Console.WriteLine("Informe o ID da conta: ");
+            int idConta = Convert.ToInt32(Console.ReadLine());
 
-        Console.WriteLine("Informe o número da conta: ");
-        c1.NuConta = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Informe a agência da conta: ");
+            int agencia = Convert.ToInt32(Console.ReadLine());
 
-        Console.WriteLine("Informe o nome do titular:");
-        c1.TitularConta = Console.ReadLine();
+            Console.WriteLine("Informe o número da conta: ");
+            int nuConta = Convert.ToInt32(Console.ReadLine());
 
-        Console.WriteLine("Informe o saldo da conta: ");
-        c1.Saldo = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Informe o nome do titular:");
+            string titularConta = Console.ReadLine();
 
-        contas.Add(c1);
+            Console.WriteLine("Informe o saldo da conta: ");
+            double saldo = Convert.ToDouble(Console.ReadLine());
+            
+            ContaBancaria c1 = new ContaBancaria(idConta, agencia, nuConta, titularConta, saldo);
+            contas.Add(c1);
 
-        Console.Write("Deseja cadastrar uma nova conta (s/n):");
-        opcContinuar = Console.ReadLine().ToLower().Trim();
+            Console.Write("Deseja cadastrar uma nova conta (s/n):");
+            opcContinuar = Console.ReadLine().ToLower().Trim();
 
+        }
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("Erro: " + e.Message);
+        Console.ReadKey();
     }
 }
-
 void ListarContas()
 {
     Console.Clear();
@@ -103,17 +114,16 @@ void ListarContas()
         Console.Clear();
         foreach (ContaBancaria c in contas)
         {
-            Console.WriteLine($"\nID da conta: {c.IdConta}");
-            Console.WriteLine($"Agência: {c.Agencia}");
-            Console.WriteLine($"Número da conta: {c.NuConta}");
-            Console.WriteLine($"Nome do titular: {c.TitularConta}");
-            Console.WriteLine($"Saldo da conta: {c.Saldo.ToString("C2")}");
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine($"ID: {c.IdConta} | Agência: {c.Agencia} | Conta: {c.NuConta}");
+            Console.WriteLine($"Titular: {c.TitularConta}");
+            Console.WriteLine($"Saldo: {c.Saldo.ToString("C2")}");
+            Console.WriteLine("------------------------------------------");
         }
         Console.WriteLine("\nPressione qualquer tecla para continuar...");
         Console.ReadKey();
     }
 }
-
 void Deposito()
 {
     Console.Clear();
@@ -138,7 +148,6 @@ void Deposito()
     Console.WriteLine("\nPressione qualquer tecla para continuar...");
     Console.ReadKey();
 }
-
 void Saque()
 {
     Console.Clear();
@@ -156,7 +165,6 @@ void Saque()
         contaCli.Sacar(valorSaque);
         Console.WriteLine("\nSaque realizado com sucesso!");
     }
-
     Console.WriteLine("\nPressione qualquer tecla para continuar...");
     Console.ReadKey();
 }
@@ -251,7 +259,6 @@ void BuscarConta() //segundo commit
 
     Console.WriteLine("\nPressione qualquer tecla para continuar...");
     Console.ReadKey();
-
 }
 
 void Transferir()
@@ -264,19 +271,30 @@ void Transferir()
     
     //validando contas bancárias antes de transferir
     ContaBancaria contaOrigem = contas.First(x => x.IdConta == idOrigem);
+    
     ContaBancaria contaDestino = contas.First(x => x.IdConta == idDestino);
+    Console.WriteLine($"\nConta destino: {contaDestino.TitularConta}");
 
     if (contaOrigem != null && contaDestino != null)
     {
         Console.Write("Informe o valor que deseja transferir: R$");
         double valorTrans = Convert.ToDouble(Console.ReadLine());
-        
-        contaOrigem.Sacar(valorTrans);
-        contaDestino.Depositar(valorTrans);
 
-        Console.WriteLine("\nTransferência realizada com sucesso!");
-        Console.WriteLine("\nPressione qualquer tecla para continuar...");
-        Console.ReadKey();
+        if (contaOrigem.Saldo >= valorTrans)
+        {
+            contaOrigem.Sacar(valorTrans);
+            contaDestino.Depositar(valorTrans);
+
+            Console.WriteLine("\nTransferência realizada com sucesso!");
+            Console.WriteLine("\nPressione qualquer tecla para continuar...");
+            Console.ReadKey();
+        }
+        else
+        {
+            Console.WriteLine("Saldo insuficiente.");
+            Console.WriteLine("\nPressione qualquer tecla para continuar...");
+            Console.ReadKey();
+        }
     }
     else
     {
@@ -284,5 +302,4 @@ void Transferir()
         Console.WriteLine("\nPressione qualquer tecla para continuar...");
         Console.ReadKey();
     }
-
 }

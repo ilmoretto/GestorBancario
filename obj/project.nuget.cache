@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TlRqqlaG0DM=",
+  "dgSpecHash": "R/CpekxjjTw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\sonat\\Documents\\Alê\\IFRO\\GestorBancario\\Aula16-04-2025.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\sonat\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.13\\microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
-    "C:\\Users\\sonat\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.13\\microsoft.windowsdesktop.app.ref.8.0.13.nupkg.sha512",
-    "C:\\Users\\sonat\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.13\\microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512",
-    "C:\\Users\\sonat\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.13\\microsoft.netcore.app.host.win-x64.8.0.13.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\moret\\Documents\\POO\\EstudosExtras\\GestorBancario\\Aula16-04-2025.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
