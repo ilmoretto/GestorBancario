@@ -13,6 +13,11 @@
         this.NuConta = NuConta;
         this.TitularConta = TitularConta;
         this.Saldo = Saldo;
+    }// método construtor: usado na inicialização do objeto
+
+    public ContaBancaria()
+    {
+
     }
 
     public void Depositar(double valorDep)
@@ -36,6 +41,19 @@
         else
         {
             Console.WriteLine("Valor inválido ou saldo insuficiente.");
+        }
+    }
+    // edições a partir de 30/04
+    public void Depositar()
+    {
+        double valorDep = 0;
+        if (valorDep > 0)
+        {
+            Saldo += valorDep;
+        }
+        else
+        {
+            Console.WriteLine("Valor inválido!");
         }
     }
 

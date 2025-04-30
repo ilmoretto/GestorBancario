@@ -86,8 +86,8 @@ void CadastrarConta()
             Console.WriteLine("Informe o saldo da conta: ");
             double saldo = Convert.ToDouble(Console.ReadLine());
             
-            ContaBancaria c1 = new ContaBancaria(idConta, agencia, nuConta, titularConta, saldo);
-            contas.Add(c1);
+            ContaBancaria c1 = new ContaBancaria(idConta, agencia, nuConta, titularConta, saldo); // criando o objeto
+            contas.Add(c1); 
 
             Console.Write("Deseja cadastrar uma nova conta (s/n):");
             opcContinuar = Console.ReadLine().ToLower().Trim();
