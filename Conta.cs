@@ -1,6 +1,6 @@
 ﻿public class ContaBancaria
 {
-    public int IdConta;
+    private int IdConta;
     public int Agencia;
     public int NuConta;
     public string TitularConta;
@@ -19,6 +19,20 @@
     {
 
     }
+    // codificando get e set
+    public void setId(int idConta)
+    {
+        if(idConta > 0)
+        {
+            this.IdConta = idConta;
+        }
+    }
+
+    public int getId()
+    {
+        return this.IdConta;
+    }
+
 
     public void Depositar(double valorDep)
     {

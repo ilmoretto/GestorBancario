@@ -115,7 +115,7 @@ void ListarContas()
         foreach (ContaBancaria c in contas)
         {
             Console.WriteLine("------------------------------------------");
-            Console.WriteLine($"ID: {c.IdConta} | Agência: {c.Agencia} | Conta: {c.NuConta}");
+            Console.WriteLine($"ID: {c.getId} | Agência: {c.Agencia} | Conta: {c.NuConta}");
             Console.WriteLine($"Titular: {c.TitularConta}");
             Console.WriteLine($"Saldo: {c.Saldo.ToString("C2")}");
             Console.WriteLine("------------------------------------------");
@@ -130,7 +130,7 @@ void Deposito()
     Console.Write("Informe o ID da conta para depositar: ");
     int idConta = Convert.ToInt32(Console.ReadLine());
 
-    ContaBancaria contaCli = contas.FirstOrDefault(x => x.IdConta == idConta);
+    ContaBancaria contaCli = contas.FirstOrDefault(x => x.getId() == idConta);
     //localizando a conta bancário correta antes de efetuar o depósito
 
     if (contaCli != null)
@@ -154,7 +154,7 @@ void Saque()
     Console.Write("Informe o ID da conta para sacar: ");
     int idConta = Convert.ToInt32(Console.ReadLine());
 
-    ContaBancaria contaCli = contas.FirstOrDefault(x => x.IdConta == idConta);
+    ContaBancaria contaCli = contas.FirstOrDefault(x => x.getId() == idConta);
     //localizando a conta bancário correta antes de efetuar o saque
 
     if (contaCli != null)
@@ -199,7 +199,7 @@ void FiltrarSaldo()
             {
                 foreach (ContaBancaria c in filtroConta)
                 {
-                    Console.WriteLine($"\nID da conta: {c.IdConta}");
+                    Console.WriteLine($"\nID da conta: {c.getId}");
                     Console.WriteLine($"Titular da conta: {c.TitularConta}");
                     Console.WriteLine($"Saldo da conta: {c.Saldo.ToString("C2")}");
                 }
@@ -238,7 +238,7 @@ void BuscarConta() //segundo commit
     int idConta = Convert.ToInt32(Console.ReadLine());
     try
     {
-        ContaBancaria contaLoc = contas.First(x => x.IdConta == idConta);
+        ContaBancaria contaLoc = contas.First(x => x.getId() == idConta);
 
         if (contaLoc != null)
         {
@@ -270,9 +270,9 @@ void Transferir()
     int idDestino = Convert.ToInt32(Console.ReadLine());
     
     //validando contas bancárias antes de transferir
-    ContaBancaria contaOrigem = contas.First(x => x.IdConta == idOrigem);
+    ContaBancaria contaOrigem = contas.First(x => x.getId() == idOrigem);
     
-    ContaBancaria contaDestino = contas.First(x => x.IdConta == idDestino);
+    ContaBancaria contaDestino = contas.First(x => x.getId() == idDestino);
     Console.WriteLine($"\nConta destino: {contaDestino.TitularConta}");
 
     if (contaOrigem != null && contaDestino != null)
